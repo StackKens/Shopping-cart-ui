@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Mouse",
-      "description": "Good mouse",
+      "description": "Good mouse basically for developers.",
       "price": 20,
       "quantity": 25,
       "category": "Audio",
