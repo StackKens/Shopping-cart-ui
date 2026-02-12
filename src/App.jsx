@@ -1,36 +1,21 @@
-import { useState, useEffect } from 'react';
 import ProductCard from './Components/ProductCard';
+import { useContext } from 'react';
+import { ProductContext } from './context/ProductContext';
 const App = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch('api/products');
-        if (!res.ok) throw new Error('OOPs Something went Wrong!');
-        const data = await res.json();
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
-
-  if (loading) return <p className='text-center p-4'>Loading...</p>;
-  if (error) return <p className='text-center p-4 text-red-500'>{error}</p>;
-
+  const { products, loading, error } = useContext(ProductContext);
   return (
     <>
       <h1 className='text-2xl text-center p-4 text-neutral-900 font-bold'>
         🛒 Browse Products
       </h1>
+      {loading && <p className='text-center p-3 mx-auto mb-5'>Loading...</p>}
+      {error && (
+        <p className='text-red-400 text-center p-3 mx-auto mb-5'>
+          Oops. An Error occured
+        </p>
+      )}
 
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 pt-5'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-6 pt-5 mt-6'>
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
