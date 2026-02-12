@@ -2,13 +2,14 @@
   "products": [
     {
       "id": "1",
-      "name": "Mouse",
-      "description": "Good mouse basically for developers.",
-      "price": 20,
+      "name": "Wireless HeadPhones",
+      "description": "Nose councelling HeadPhone",
+      "price": 70.2,
       "quantity": 25,
       "category": "Audio",
       "rating": 4.5,
-      "image": "images/product-1.png"
+      "image": "images/product-1.png",
+      "deacription": "Nose councelling HeadPhone"
     },
     {
       "id": "2",
