@@ -1,8 +1,7 @@
 import ProductCard from './Components/ProductCard';
-import { useContext } from 'react';
-import { ProductContext } from './context/ProductContext';
+import { useProducts } from './context/ProductContext';
 const App = () => {
-  const { products, loading, error } = useContext(ProductContext);
+  const { products, loading, error } = useProducts();
   return (
     <>
       <h1 className='text-2xl text-center p-4 text-neutral-900 font-bold'>

@@ -1,8 +1,7 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState, useEffect, useContext } from 'react';
 
 // Create the context
-
-export const ProductContext = createContext();
+const ProductContext = createContext();
 
 // create the provider
 
@@ -32,4 +31,8 @@ export function ProductProvider({ children }) {
       {children}
     </ProductContext.Provider>
   );
+}
+
+export function useProducts() {
+  return useContext(ProductContext);
 }
