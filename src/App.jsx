@@ -1,12 +1,17 @@
 import ProductCard from './Components/ProductCard';
 import { useProducts } from './context/ProductContext';
+import Header from './Components/Header';
 const App = () => {
   const { products, loading, error } = useProducts();
   return (
     <>
-      <h1 className='text-2xl text-center p-4 text-neutral-900 font-bold'>
-        🛒 Browse Products
-      </h1>
+      <div className='flex items-center justify-between px-6'>
+        <h1 className='text-2xl text-center p-4 text-neutral-900 font-bold'>
+          🛒 Browse Products
+        </h1>
+        <Header />
+      </div>
+
       {loading && <p className='text-center p-3 mx-auto mb-5'>Loading...</p>}
       {error && (
         <p className='text-red-400 text-center p-3 mx-auto mb-5'>
